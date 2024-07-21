@@ -81,7 +81,7 @@ module.exports = {
     bscMainnet: {
       url: process.env.MAINNET_BSC,
       gasPrice: "auto",
-      accounts: [`0x${process.env.PK5}`],
+      accounts: [`0x${process.env.PK1}`],
     },
     skaleNebula: {
       url: process.env.SKALE_NEBULA,
@@ -119,3 +119,4 @@ module.exports = {
 
 //npx hardhat verify --network bscMainnet 0x914298d8Eed75214A7001e53D3Ed6b2D87cD8cD8 "0x5087AfA51c7E0383A70b5D1369DF812B38f8E453" "0xe16fE62e009961682F3a7F42642F36F5E46962F8"
 
+//npx hardhat run scripts/CIT/deploy.js --network bscMainnet
