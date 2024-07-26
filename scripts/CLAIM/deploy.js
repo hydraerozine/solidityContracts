@@ -11,7 +11,7 @@ async function main() {
   const tokenAddress = "0x34Bc6240266F24F178A39238175a6548d609B9B4";
 
   // Compile and deploy the TokenUserBalanceList contract
-  const TokenUserBalanceList = await ethers.getContractFactory("TokenUserBalanceList");
+  const TokenUserBalanceList = await ethers.getContractFactory("CLAIM");
   const tokenUserBalanceList = await TokenUserBalanceList.deploy(tokenAddress);
 
   // Wait for the deployment to be mined
