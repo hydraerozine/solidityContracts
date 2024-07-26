@@ -5,7 +5,7 @@ import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
 
-contract TokenUserBalanceList is Ownable, ReentrancyGuard {
+contract CLAIM is Ownable, ReentrancyGuard {
     IERC20 public immutable token;
 
     struct User {
