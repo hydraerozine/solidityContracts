@@ -4,10 +4,10 @@ async function main() {
   const [signer] = await ethers.getSigners();
   console.log("Executing with the account:", signer.address);
 
-  const contractAddress = "0x1142D06DeD7348C5E0b78A53ADa7BBf115484739";
-  const newOwnerAddress = "0x262B3c6c6a275df001c4e71f1aCD7008C7fc721c";
+  const contractAddress = "0xaCe069Cc75C49De1B7D12BD31Da8AE3Be7A7e073"; // RAA contract address
+  const newOwnerAddress = "0xd45C664737eF7e1d31aC7336D6a00bC8A59A305D";
 
-  // The ABI for the transferOwnership function
+  // The ABI for the transferOwnership function (same as before, as RAA uses Ownable)
   const abi = [
     "function transferOwnership(address newOwner) public"
   ];
@@ -15,7 +15,7 @@ async function main() {
   // Create a contract instance
   const contract = new ethers.Contract(contractAddress, abi, signer);
 
-  console.log("Transferring ownership of contract:", contractAddress);
+  console.log("Transferring ownership of RAA contract:", contractAddress);
   console.log("New owner will be:", newOwnerAddress);
 
   // Get the current gas price using the provider
@@ -37,14 +37,13 @@ async function main() {
   const receipt = await tx.wait(5); // Wait for 5 confirmations
 
   console.log("Ownership transfer transaction hash:", tx.hash);
-  console.log("Ownership has been transferred successfully.");
+  console.log("Ownership of RAA contract has been transferred successfully.");
   console.log("Gas used:", receipt.gasUsed.toString());
 }
 
 main()
   .then(() => process.exit(0))
   .catch((error) => {
-    console.error("Error changing ownership:", error);
+    console.error("Error changing ownership of RAA contract:", error);
     process.exit(1);
   });
-

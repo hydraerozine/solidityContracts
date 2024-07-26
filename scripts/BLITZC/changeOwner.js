@@ -4,8 +4,10 @@ async function main() {
   const [signer] = await ethers.getSigners();
   console.log("Executing with the account:", signer.address);
 
-  const contractAddress = "0x1142D06DeD7348C5E0b78A53ADa7BBf115484739";
-  const newOwnerAddress = "0x262B3c6c6a275df001c4e71f1aCD7008C7fc721c";
+  // Replace with your deployed BLITZC contract address
+  const contractAddress = "0x640323ea4BB94394516Bd18Ce1D39CC7697b62FF";
+  // Replace with the address you want to transfer ownership to
+  const newOwnerAddress = "0xb23F87AC8b0edBf373D5B86aD731a685059Ff478";
 
   // The ABI for the transferOwnership function
   const abi = [
@@ -15,7 +17,7 @@ async function main() {
   // Create a contract instance
   const contract = new ethers.Contract(contractAddress, abi, signer);
 
-  console.log("Transferring ownership of contract:", contractAddress);
+  console.log("Transferring ownership of BLITZC contract:", contractAddress);
   console.log("New owner will be:", newOwnerAddress);
 
   // Get the current gas price using the provider
@@ -47,4 +49,3 @@ main()
     console.error("Error changing ownership:", error);
     process.exit(1);
   });
-
